@@ -1,12 +1,3 @@
----
-title: 5. Memory Allocation
-updated: 2024-02-16 04:29:09Z
-created: 2024-02-16 02:44:44Z
-latitude: 45.50168890
-longitude: -73.56725600
-altitude: 0.0000
----
-
 **Memory Allocation**: Allocationg portions of computer's memory to progress or processes for them to use.
 
 # Types of Memory
