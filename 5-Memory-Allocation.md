@@ -126,7 +126,7 @@ Observing the code above, we can point out the following
 	- else, split block into equal buddies until $2^{k-1} \lt s \lt 2^k$
 	- coalesce buddies of size $2^{i-1}$ when they become free
 
-![3616831aa1852e4837dd5c29b0bc3e6e.png](/_resources/3616831aa1852e4837dd5c29b0bc3e6e.png)
+![buddy.png](/_resources/buddy.png)
 
 # Slab Allocation
 - Array of constant-size objects, bitmask of allocations
