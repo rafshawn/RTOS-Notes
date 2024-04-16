@@ -122,8 +122,8 @@ Observing the code above, we can point out the following
 	- When larger block allocated, it's split into smaller blocks if necessary.
 	- Conversely, when a lock is deallocated, allocator checks if its busy (adjacent block of same size) is also free. If so, buddies coalesced into larger block.
 - **MATH & LOGIC**:
-	- if $2^{U-1}<s<2^U$, allocate entire block.
-	- else, split block into equal buddies until $2^{k-1}<s<2^k$
+	- if $2^{U-1} \lt s \lt 2^U$, allocate entire block.
+	- else, split block into equal buddies until $2^{k-1} \lt s \lt 2^k$
 	- coalesce buddies of size $2^{i-1}$ when they become free
 
 ![3616831aa1852e4837dd5c29b0bc3e6e.png](_resources/3616831aa1852e4837dd5c29b0bc3e6e.png)
