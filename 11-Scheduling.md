@@ -20,7 +20,7 @@ Deciding which task to assign to a resource at a given time, such as...
 ## Short-term Scheduling
 - Also known as *Dispatcher*
 - Chooses a **Ready** process to execute
-- Triggers when curren process blocks, on an interrupt (I/O or timer), or on a syscall.
+- Triggers when current process blocks, on an interrupt (I/O or timer), or on a syscall.
 - Transitions processes from *Ready* to *Running* state to ensure efficient CPU utilisation
 
 # Criteria
@@ -32,11 +32,11 @@ Divided into two categories, focusing on different aspects of performance and ef
 - **Other**:
 	- **Fairness**: Treated the same, absence of starvation
 	- **Priorities**: Higher priority first
-	- **Balancing resources**: Bsuy but not overstressed
+	- **Balancing resources**: Busy but not overstressed
 ### User Oriented:
 - **Performance**:
 	- **Turnaround Time**: Submissions to completion
-	- **Response time**: Respose to start of response
+	- **Response time**: Request to start of response
 	- **Deadlines**: Maximize percentage of deadlines met
 	- **Predictability**: Runs in same time regardless of load
 
@@ -60,8 +60,8 @@ Divided into two categories, focusing on different aspects of performance and ef
 	- minimum = 1; larger values indicate poorer service.
 
 # Synchronization Granularities
-The different levels at which snchronization can occur in a system
-- **Independet parallelism**: No explicit synchronization time sharing
+The different levels at which synchronization can occur in a system
+- **Independent parallelism**: No explicit synchronization time sharing
 - **Coarse-grained**: Involves concurrent processes and message passing in a distributed system
 - **Medium-grained**: Includes multitasking within an application thread scheduling
 - **Fine-grained**: Involves parallelism in single instruction stream instruction reordering (i.e., with instruction reordering)
@@ -79,7 +79,7 @@ Assignment of processes can be done in different ways depending on the schedulin
 		- Low scheduling overhead
 		- Allows group/gang scheduling
 	- **Cons**
-		- A processor may be idle whil others have backlog
+		- A processor may be idle while others have backlog
 - **Dynamic**: Processes scheduled on any available processor
 	- **Pros**:
 		- Less change of idleness and backlog

@@ -1,6 +1,6 @@
 # Virtualization
 - **Time-sharing**: Each user has the impression of working on a dedicated computer.
-- **Virtual memory**: Each process has the imporession of a dedicated address space.
+- **Virtual memory**: Each process has the impression of a dedicated address space.
 
 # Files*
 - An array of bytes that *persist*.
@@ -18,7 +18,6 @@
 	- **e.g.**: `foo.c`$\to 925551$
 - Basically just contains a list (entry name, inode number) of pairs.
 - Maps names to *inodes*.
-- 
 - For each file or directory in a given directory, there is a string and a number in the data blocks(s) of the directory.
 
 ### *Example*:

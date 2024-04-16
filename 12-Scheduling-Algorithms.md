@@ -7,7 +7,7 @@ Determines task execution order and efficiency
 - **Pros**:
 	- Better for long processes
 - **Cons**:
-	- May lead to poor turnaroud due to *convoy effect*
+	- May lead to poor turnaround due to *convoy effect*
 	- Not ideal for short processes, as it can cause delays in execution
 
 ## Shortest Process Next (SPN)
@@ -20,7 +20,7 @@ Determines task execution order and efficiency
 	- **Assumes** knowledge of job lengths
 
 ## Shortest Remaining Time (SRT)
-- Preemptive version of SPN
+- Pre-emptive version of SPN
 - Prioritises process with shortest remaining process time
 - **Pros**:
 	- Good turnaround time
@@ -31,7 +31,7 @@ Determines task execution order and efficiency
 
 ## Round Robin
 - Also known as time slicing
-- FCFS, but with clock based preemption
+- FCFS, but with clock based pre-emption
 - Each process gets a time slice (quantum) to execute
 	- Smaller quantum reduces response time
 	- Too small can increase overhead
@@ -39,8 +39,8 @@ Determines task execution order and efficiency
 
 ## Virtual Round Robin
 - Involves multiple process queues
-- I/O queues feed into auxilary queue
-	- Auxilary queue is prioritised over ready queue for process execution
+- I/O queues feed into auxiliary queue
+	- Auxiliary queue is prioritised over ready queue for process execution
 - i.e., Helps manage process priorities efficiently in a multi-process environment
 
 ## Highest Response Ratio Next
@@ -69,7 +69,7 @@ $s=$ Expected service time
 - *Interestingly*, the choice of scheduling discipline has **less impact** in a multi-processor environment than in a single processor environment
 	- **Why?**: In a multi-processor environment, tasks can be distributed across multiple processors (parallel execution).
 	- The distribution reduces the impact of the choice as *tasks can be processed concurrently*
-	- Conversely, scheduling decisions direclty affect the order and timing of task execution in a uniprocessor environment.
+	- Conversely, scheduling decisions directly affect the order and timing of task execution in a uniprocessor environment.
 
 ## Types of Multiprocessing
 - **Loosely Coupled/Distributed**:
@@ -103,7 +103,7 @@ $s=$ Expected service time
 
 Manages execution and synchronisation of threads in a multi-threaded environment:
 - **Spawn**: Creation by another thread
-- **Block**: Wait fpor an event (need not block process)
+- **Block**: Wait for an event (need not block process)
 - **Unblock**: When event occurs
 - **Finish**: Termination
 
@@ -120,10 +120,10 @@ Manages execution and synchronisation of threads in a multi-threaded environment
 - **Pros**:
 	- No kernel mode switch to thread switch
 	- Application specific scheduling
-	- OS Indepdendent (portable)
+	- OS Independent (portable)
 - **Cons**:
 	- Blocking syscalls blocks entire process
-	- Intre-process multiprocessing not possible
+	- Interprocess multiprocessing not possible
 
 ## Kernel-level Threads (KLT)
 <img src="_resources/d6c1398c382b17736c60fb25076d08fe.png" width="250"/>

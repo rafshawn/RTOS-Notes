@@ -35,5 +35,5 @@
 - How unprivileged processes perform privileged operations
 - Privileged system (*kernel*) code called by unprivileged (*user*) process
 - Note called like ordinary functions:
-	1. Set arguments (including syscall #) in registers or memroy
+	1. Set arguments (including syscall #) in registers or memory
 	2. Invoke interrupt or syscall instruction

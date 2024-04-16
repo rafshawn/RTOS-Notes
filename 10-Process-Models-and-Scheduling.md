@@ -12,7 +12,7 @@
 - Contains essential information about a process, including:
 	- Registers (program counter, status word, etc.)
 	- FPU state
-	- Descriptor tables (e.g., IDT -- Interupt Descriptor Table)
+	- Descriptor tables (e.g., IDT -- Interrupt Descriptor Table)
 	- Memory pointers to code and data, shared memory blocks
 	- Fault handler
 	- Flags
@@ -109,9 +109,9 @@ Analysis and optimisation of processes waiting to be executed
 # Reasons for suspension:
 Lists various reasons for process suspension.
 
-| Reason | Comment                |
-|----------|------------------------|
-| Swapping    | OS needs to release resources for another process             |
-| User Request | e.g., debugging or manual suspension (`Ctrl+Z`) |
-| Timing | Suspension of periodic process while awaiting next run|
-| Parent Request | Debugging, examination, coordination of descendants |
+| Reason         | Comment                                                |
+|----------------|--------------------------------------------------------|
+| Swapping       | OS needs to release resources for another process      |
+| User Request   | e.g., debugging or manual suspension (`Ctrl+Z`)        |
+| Timing         | Suspension of periodic process while awaiting next run |
+| Parent Request | Debugging, examination, coordination of descendants    |

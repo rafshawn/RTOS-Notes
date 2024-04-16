@@ -12,16 +12,16 @@
 
 # Mechanisms
 - **Segments**: Variable-length blocks of memory, programmer-visible and controllable
-- **Pages**: Fixed-length blocks of memory, invisible to progarms
+- **Pages**: Fixed-length blocks of memory, invisible to programs
 - Mechanisms can be combined
 
 ## Segmentation
-<img src="_resources/01077e0cc4c8cbe65448898de14e0796.png" width="350"/>
+<img src="_resources/01077e0cc4c8cbe65448898de14e0796-1.png" width="350"/>
 
 - Divide process into unequal size *segments* with different values for *base*, *length*, and *protection*
 - Programmer must be aware of maximum segment size
 	- e.g., 64 KiB on 8086/8088!
-- Introduced in 1960s with systems like Burroughts B5000 and Multics
+- Introduced in 1960s with systems like Burroughs B5000 and Multics
 - Intel 8086/8088 used fixed length, overlapping segments like...
 	- **CS**: code segment
 	- **DS**: data segment
@@ -31,15 +31,15 @@
 	- FS, GS still work
 
 ## Paging
-<img src="_resources/9dea76d79704e26f48c7011eb418d0b4.png" width="350"/>
+<img src="_resources/9dea76d79704e26f48c7011eb418d0b4-1.png" width="350"/>
 
 - Partition **virtual memory** into fixed-size pages and...
 - ...**physical memory** into *frames* of the same size
 - Don't need to be stored in contiguous frames
 
 ## Important Differences
-<img src="_resources/ac2707217e9a9913123a4c5aa1c979a2.png" width="350"/>
-<img src="_resources/a4eee01b688aa336ce404f84e9bcaa5a.png" width="350"/>
+<img src="_resources/ac2707217e9a9913123a4c5aa1c979a2-1.png" width="350"/>
+<img src="_resources/a4eee01b688aa336ce404f84e9bcaa5a-1.png" width="350"/>
 
 **Segmentation VS Paging**
 - **Size**:
@@ -48,9 +48,3 @@
 - **Visibility**:
 	- Segments are visible to programs
 	- Pages are not
-
-# Paging in Practice
-- In practice, real page tables are not monolihic but structured as multi-level page tables
-- Some concrete examples from Intel and AMD
-	- ARM has similar memory management hardware
-- Variations of pages used in different OS' to optimise memory management

@@ -8,7 +8,7 @@
 # POSIX Shell
 - **POSIX**: Portable Operating System Interface
 	- Set of standards specifying the interface between a Unix-like OS and user programs.
-- A POSIX shell addheres to POSIX standard for shell syntax, built-in commands, environments variables, and other shell features.
+- A POSIX shell adheres to POSIX standard for shell syntax, built-in commands, environments variables, and other shell features.
 - Provides consistent and portable environment for executing commands, scripting, and interacting with OS.
 
 ## Redirection:
@@ -25,8 +25,8 @@
 	- `echo "Hello, old friend."` is passed as input to `cowsay`
 - Output from one program becomes the input another (one way).
 - **`pipe(2)`**: creates a descriptor for reading and one for writing
-- **`dup(2)`**: sets up stdoout/stdin
-- File descriptors inherrited across `fork(2)` and `execve(2)`.
+- **`dup(2)`**: sets up stdout/stdin
+- File descriptors inherited across `fork(2)` and `execve(2)`.
 
 ## Job Control
 - Ability to manage multiple processes running within shell environment.

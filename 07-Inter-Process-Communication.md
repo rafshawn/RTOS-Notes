@@ -55,7 +55,7 @@ ssize_t recvmsg(int s, struct msghdr *msg, int flags);
 - using local sockets, ability to share data **and files**
 
 In other words...
-- Local sockets offer more advanced features, better performace, and flexibility.
+- Local sockets offer more advanced features, better performance, and flexibility.
 - Better suited for IPC scenarios.
 
 # System V IPC
@@ -73,7 +73,7 @@ if (key == -1) { /* ... */ }
 ```
 
 # System V Semaphores
-- **Purpose**: Synchronization mechanism used to control access to shared resources between mutiple processes.
+- **Purpose**: Synchronization mechanism used to control access to shared resources between multiple processes.
 - **Semaphores shared by multiple processes**: Typically used to coordinate access to shared resources (files, memory, hardware)
 - Work on **arrays of semaphores**
 ### Operations:

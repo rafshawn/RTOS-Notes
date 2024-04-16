@@ -51,11 +51,11 @@
 - Despite being designed as a microkernel, Windows NT also includes non-microkernel components.
 
 # Instruction Processing
-- Typically processes one instruction at a time in a sequential mannger
+- Typically processes one instruction at a time in a sequential manager
 - **Pipelining** used for efficiency by overlapping instruction execution stages
 - **Interrupts** may occer at any time, requiring processor to handle them during instruction processing
 
-# Interreupt Handling
+# Interrupt Handling
 - When an interrupt is triggered, hardware disables interrupts to prevent further interruptions.
 	- ***Why?*** To prevent further interruptions during handling the current interrupt.
 - Hardware saves the *program counter* (**PC**) and *Processor Status Word* (**PSW**) or *Current Program Status Register* (**CPSR**).
