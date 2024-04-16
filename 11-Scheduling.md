@@ -138,9 +138,9 @@ Determines task execution order and efficiency
 - i.e., Helps manage process priorities efficiently in a multi-process environment
 
 ## Highest Response Ratio Next
-$$R = \frac{w+s}{s}$$
+$R = \frac{w+s}{s}\newline$
 $w=$ Time spent waiting
-$s=$ Expected service time
+$\newline s=$ Expected service time
 - Selects the ready process with the largest value of response ratio, $R$
 - Favours shorter jobs and brings lognger jobs to the top based on age
 - i.e., Helps minimise waiting time by prioritising processes with a higher expected service time
