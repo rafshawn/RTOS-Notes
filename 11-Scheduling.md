@@ -60,6 +60,7 @@ Divided into two categories, focusing on different aspects of performance and ef
 	- minimum = 1; larger values indicate poorer service.
 
 # Synchronization Granularities
+The different levels at which snchronization can occur in a system
 - **Independet parallelism**: No explicit synchronization time sharing
 - **Coarse-grained**: Involves concurrent processes and message passing in a distributed system
 - **Medium-grained**: Includes multitasking within an application thread scheduling
@@ -71,7 +72,8 @@ Design issues in scheduling involve...
 - use of multiprogramming on individual processors
 - dispatching
 
-# Process Assignment
+## Process Assignment
+Assignment of processes can be done in different ways depending on the scheduling method. For example...
 - **Static**: Processes permanently assigned to processors (dedicated queue for each professor)
 	- **Pros**:
 		- Low scheduling overhead
@@ -85,8 +87,7 @@ Design issues in scheduling involve...
 		- Higher scheduling overhead
 	- **Dynamic Load Balancing**: Multiple queues, but processes moved between queues to balance load.
 
-# Assignment
-Assignment of processes can be done in different ways depending on the scheduling method. For example...
+### Where is it done?
 - **Leader/Follower**: Decisions are mode on one processor
 	- **Pros**:
 		- Simple

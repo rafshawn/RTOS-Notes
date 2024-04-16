@@ -1,30 +1,37 @@
-```TODO: FINISH THIS CHAPTER```
 # Dispatching Algorithms
 Determines task execution order and efficiency
 
 ## First Come First Served (FCFS)
-- Processes chose from the fron of the ready queue in order of arrival
-- Better for long processes, but may lead to poor turnaroud due to *convoy effect*
-- Not ideal for short processes, as it can cause delays in execution
+- Essentially **FIFO**
+- Processes chose from the front of the ready queue in order of arrival
+- **Pros**:
+	- Better for long processes
+- **Cons**:
+	- May lead to poor turnaroud due to *convoy effect*
+	- Not ideal for short processes, as it can cause delays in execution
 
 ## Shortest Process Next (SPN)
 - Also known as *Shortest Job First (SJF)*
 - Selects shortest job in the ready queue for execution
-- Optimal average Turnaround Time (TAT) **if all jobs arrive together**...
-- ...but risk of starvation for long processes
-- **Assumes** knowledge of job lengths
+- **Pros**:
+	- Optimal average Turnaround Time (TAT) **if all jobs arrive together**...
+- **Cons**:
+	- ...but risk of starvation for long processes
+	- **Assumes** knowledge of job lengths
 
 ## Shortest Remaining Time (SRT)
 - Preemptive version of SPN
 - Prioritises process with shortest remaining process time
-- Good turnaround time
-- Avvoids bias to longer processes
-- Low overhead
-- Need estimate of required processing time
+- **Pros**:
+	- Good turnaround time
+	- Avoids bias to longer processes
+	- Low overhead
+- **Cons**:
+	- Need estimate of required processing time
 
 ## Round Robin
 - Also known as time slicing
-- FCFS with clock based preemption
+- FCFS, but with clock based preemption
 - Each process gets a time slice (quantum) to execute
 	- Smaller quantum reduces response time
 	- Too small can increase overhead
@@ -32,8 +39,8 @@ Determines task execution order and efficiency
 
 ## Virtual Round Robin
 - Involves multiple process queues
-- I/O queues feed into aux queue
-	- Aux queue is prioritised over ready queue for process execution
+- I/O queues feed into auxilary queue
+	- Auxilary queue is prioritised over ready queue for process execution
 - i.e., Helps manage process priorities efficiently in a multi-process environment
 
 ## Highest Response Ratio Next
@@ -43,16 +50,99 @@ $w=$ Time spent waiting
 
 $s=$ Expected service time
 - Selects the ready process with the largest value of response ratio, $R$
-- Favours shorter jobs and brings lognger jobs to the top based on age
+- **Favours shorter jobs**
+- Brings longer jobs to the top based on age
 - i.e., Helps minimise waiting time by prioritising processes with a higher expected service time
 
 ## Fair-Share Scheduling
-- Ensures each user or process group get as a fair share of processor time
-- **up to now**: homogenous pool of processes
-- **multi-user environment**: groups of user processos
-- Ensure each user gets "fair share" of processor time
-- Dynamic priority adjustments on usage within group
-- **Networking**: *Weighted fair queueing*
-- Implemented in Linux with the Completely Fair Scheduler (CFS) to maintain fairnes sin resources allocation
+- Method used in a **multi-user environment**
+	- i.e., groups of user processors
+	- Ensures each user or process group gets "fair share" of processor time
+- Dynamic priority adjustments based on usage within group
+- In **Networking**, similar concept applied through *Weighted fair queueing*
+- Implemented in Linux with the *Completely Fair Scheduler (CFS)* to maintain fairness in resources allocation
 
 # Multiprocessor Scheduling
+- Involves managing the execution of multiple processes on a system
+- Same algorithms as uniprocessor scheduling
+- Multiple queues (or processors) to think about
+- *Interestingly*, the choice of scheduling discipline has **less impact** in a multi-processor environment than in a single processor environment
+	- **Why?**: In a multi-processor environment, tasks can be distributed across multiple processors (parallel execution).
+	- The distribution reduces the impact of the choice as *tasks can be processed concurrently*
+	- Conversely, scheduling decisions direclty affect the order and timing of task execution in a uniprocessor environment.
+
+## Types of Multiprocessing
+- **Loosely Coupled/Distributed**:
+	- Independent systems work together on a task
+	- Each processor has its own memory, I/O, etc.
+- **Functionally Specialised**:
+	- Processors dedicated to specific functions
+	- Usually controller-peripheral
+- **Tightly Coupled**:
+	- Processors share memory and communicate closely (one OS)
+	- Task integration more integrated
+
+# Threads
+- *Lightweight processes* within a program that can execute independently
+- Processes own threads
+	- There can be 1 thread per process, or many
+	- Shares the same memory space and resources
+- Can run concurrently to handle multiple tasks simultaneously
+	- This is known as ***Multithreading***
+
+## Multithreading
+- Allows for parallel execution of tasks.
+- Shares the same *process description* and *userspace address space*
+- Each thread has:
+	- Userspace stack
+	- Kernel stack
+	- Local variable storage (architecture dependent)
+
+## Thread Events
+<img src="_resources/61eabf24e00404eb8824ae38877e25c6.png" width="400"/>
+
+Manages execution and synchronisation of threads in a multi-threaded environment:
+- **Spawn**: Creation by another thread
+- **Block**: Wait fpor an event (need not block process)
+- **Unblock**: When event occurs
+- **Finish**: Termination
+
+# Types of Threads
+<img src="_resources/1335c5afc122f858b2fdfab52c572a80.png" width="250"/>
+
+## User-level Threads (ULT)
+- Managed by the application without kernel support
+- Lightweight and fast to create and manage
+- Threads are creating by the process
+	- Uses threading library
+- Often used in Scientific Computing
+- Many languages have ULT support
+- **Pros**:
+	- No kernel mode switch to thread switch
+	- Application specific scheduling
+	- OS Indepdendent (portable)
+- **Cons**:
+	- Blocking syscalls blocks entire process
+	- Intre-process multiprocessing not possible
+
+## Kernel-level Threads (KLT)
+<img src="_resources/d6c1398c382b17736c60fb25076d08fe.png" width="250"/>
+
+- Managed by the kernel (i.e., the OS)
+- Processes create threads via API (`pthreads`)
+- Scheduling is handled by kernel
+- **Pros**:
+	- Overcomes ULT disadvantages
+	- More robust
+- **Cons**:
+	- Slower to create and manage compared to ULT
+	- Thread switch requires a mode switch
+
+## Hybrid Threading
+<img src="_resources/536be26b96b23c53912b966f07912f95.png" width="250"/>
+
+- Combines *ULT* and *KLT*
+	- ULTs mapped to (one or more) KLTs for multiprocessing
+- Thread creating done in userspace
+- Most scheduling done in userspace
+- ***Example***: `libdispatch`
