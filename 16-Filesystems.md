@@ -77,7 +77,7 @@
 	- Offset of data blocks
 - May have multiple copies for redundancy to enhance reliability of filesystem
 
-# VFS Operations
+# Virtual Filesystem (VFS) Operations
 - Generic actions that apply to any filesystem
 - Includes operations like `getattr`, `open`, `read`, `write`, `truncate`, etc.
 - Provides an object-oriented interface to interact with filesystem
